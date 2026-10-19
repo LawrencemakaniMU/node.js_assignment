@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api/recipes';
+const API_URL = 'https://github.com/LawrencemakaniMU/node.js_assignment.git';
 
 const recipeForm = document.getElementById('recipeForm');
 const recipeTableBody = document.getElementById('recipeTableBody');
