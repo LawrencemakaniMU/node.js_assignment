@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Manager - CRUD App</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 20px auto; padding: 0 20px; background: #f9f9f9; color: #333; }
+    h1, h2 { color: #2c3e50; }
+    form { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #3498db; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #2980b9; }
+    button#cancelBtn { background: #95a5a6; display: none; margin-left: 10px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background: #2c3e50; color: white; }
+    .actions button { padding: 5px 10px; margin-right: 5px; font-size: 12px; }
+    .btn-edit { background: #f39c12; }
+    .btn-edit:hover { background: #d68910; }
+    .btn-delete { background: #e74c3c; }
+    .btn-delete:hover { background: #c0392b; }
+  </style>
+</head>
+<body>
+
+  <h1>Personal Recipe Manager</h1>
+
+  <!-- Form for Create / Update -->
+  <form id="recipeForm">
+    <h2 id="formTitle">Add New Recipe</h2>
+    <input type="hidden" id="recipeId">
+    
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input type="text" id="category" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="prep_time_mins">Prep Time (mins):</label>
+      <input type="number" id="prep_time_mins" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="instructions">Instructions:</label>
+      <textarea id="instructions" rows="3" required></textarea>
+    </div>
+    
+    <button type="submit" id="submitBtn">Save Recipe</button>
+    <button type="button" id="cancelBtn">Cancel Edit</button>
+  </form>
+
+  <!-- Table to List Records -->
+  <h2>Recipe List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Prep (Mins)</th>
+        <th>Difficulty</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="recipeTableBody">
+      <!-- Dynamic rows will load here -->
+    </tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>
